@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startChimeService();
             } else {
-                Toast.makeText(this, "需要通知权限才能使用整点报时功能", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.permission_required), Toast.LENGTH_SHORT).show();
             }
         }
     }
