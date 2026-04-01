@@ -62,7 +62,7 @@ public class ChimeService extends Service {
                     NotificationManager.IMPORTANCE_LOW
             );
             channel.setDescription(getString(R.string.service_description));
-            NotificationManager manager = getSystemService(NotificationManager.class);
+            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             if (manager != null) {
                 manager.createNotificationChannel(channel);
             }
