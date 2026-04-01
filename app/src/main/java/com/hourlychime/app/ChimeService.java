@@ -172,8 +172,13 @@ public class ChimeService extends Service {
 
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             if (notificationManager != null) {
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                        .setContentTitle(context.getString(R.string.notification_title))
+                NotificationCompat.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    builder = new NotificationCompat.Builder(context, CHANNEL_ID);
+                } else {
+                    builder = new NotificationCompat.Builder(context);
+                }
+                builder.setContentTitle(context.getString(R.string.notification_title))
                         .setContentText(timeText)
                         .setSmallIcon(android.R.drawable.ic_dialog_info)
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
