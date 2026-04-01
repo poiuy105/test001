@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">整点报时</string>
+    <string name="service_title">整点报时服务</string>
+    <string name="service_description">在后台运行，每小时整点报时</string>
+    <string name="enable_chime">启用整点报时</string>
+    <string name="disable_chime">禁用整点报时</string>
+    <string name="chime_enabled">整点报时已启用</string>
+    <string name="chime_disabled">整点报时已禁用</string>
+    <string name="notification_title">整点报时</string>
+    <string name="notification_text">现在是 %d 点整</string>
+</resources>
