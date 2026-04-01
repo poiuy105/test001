@@ -90,11 +90,15 @@ public class ChimeService extends Service {
         calendar.set(Calendar.MILLISECOND, 0);
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this,
                 ALARM_REQUEST_CODE,
                 alarmIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+                flags
         );
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -117,11 +121,15 @@ public class ChimeService extends Service {
         if (alarmManager == null) return;
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this,
                 ALARM_REQUEST_CODE,
                 alarmIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+                flags
         );
 
         alarmManager.cancel(pendingIntent);
