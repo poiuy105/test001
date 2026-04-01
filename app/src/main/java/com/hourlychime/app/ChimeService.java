@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.Vibrator;
+import android.os.VibrationEffect;
 
 import androidx.core.app.NotificationCompat;
 
